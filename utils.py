@@ -17,7 +17,7 @@ def save_json(path, data):
 def save_file(path, data):
     try:
         loss = data['loss']
-        acc = data['acc']
+        acc = data['accuracy']
         with open(path, 'w') as f:
             f.write(f"Metrics\nloss = {loss}, Accuracy: {acc}.")
         print("File sucessfully saved!")
