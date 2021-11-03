@@ -30,6 +30,6 @@ jobs:
           --epochs 4 
           
           echo "## Some Results" > report.md
-          cat metrics/metrics/metrics.json >> report.md
+          cat reports/metrics/metrics.json >> report.md
           
           cml-send-comment report.md
