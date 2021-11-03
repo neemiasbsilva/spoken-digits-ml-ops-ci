@@ -22,7 +22,7 @@ jobs:
           python main.py \
           --checkpoint_path "./reports/checkpoint" \
           --data_path "hub://activeloop/spoken_mnist" \
-          --json_path "./reports/metrics/metrics.json" \
+          --json_path "./reports/metrics/metrics.txt" \
           --n_classes 10 \
           --filters 16 32 64 \
           --kernel_size "3,3" "3,3" "3,3" \
@@ -30,6 +30,6 @@ jobs:
           --epochs 4 
           
           echo "## Some Results" > report.md
-          cat reports/metrics/metrics.json >> report.md
+          cat reports/metrics/metrics.txt >> report.md
           
           cml-send-comment report.md
