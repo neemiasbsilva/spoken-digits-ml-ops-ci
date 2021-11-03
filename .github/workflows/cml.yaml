@@ -28,3 +28,8 @@ jobs:
           --kernel_size "3,3" "3,3" "3,3" \
           --batch_size 64 \
           --epochs 4 
+          
+          echo "## Some Results" > report.md
+          cat metrics/metrics/metrics.json >> report.md
+          
+          cml-send-comment report.md
