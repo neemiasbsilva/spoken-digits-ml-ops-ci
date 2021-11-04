@@ -13,6 +13,16 @@ def save_json(path, data):
         print("Json sucessfully saved!")
     except Exception as e:
         print(e)
+        
+def save_file(path, data):
+    try:
+        loss = data['loss']
+        acc = data['accuracy']
+        with open(path, 'w') as f:
+            f.write(f"Metrics\nloss = {loss}, Accuracy: {acc}.")
+        print("File sucessfully saved!")
+    except Exception as e:
+        print(e)   
 
 
 def load_dataset(data_path):

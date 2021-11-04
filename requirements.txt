@@ -32,6 +32,7 @@ mypy-boto3-lambda
 mypy-boto3-rds
 mypy-boto3-s3
 mypy-boto3-sqs
+matplotlib
 numcodecs
 numpy
 oauthlib

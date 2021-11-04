@@ -1,5 +1,5 @@
 from model import CNN_Architecture
-from utils import load_dataset, split_train_test, save_json
+from utils import load_dataset, split_train_test, save_json, save_file
 import os
 import tensorflow as tf
 import argparse
@@ -77,7 +77,8 @@ def main(args):
         "accuracy": acc
     }
     
-    save_json(json_path, result)
+#     save_json(json_path, result)
+    save_file(json_path, result)
     
 
 

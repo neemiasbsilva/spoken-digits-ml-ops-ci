@@ -1,0 +1,31 @@
+name: mlops-spoken-digits
+on: [push]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    # optionally use a convenient Ubuntu LTS + DVC + CML image
+    container: docker://ghcr.io/iterative/cml:0-dvc2-base1
+    steps:
+      - uses: actions/checkout@v2
+      # may need to setup NodeJS & Python3 on e.g. self-hosted
+      # - uses: actions/setup-node@v2
+      #   with:
+      #     node-version: '12'
+      # - uses: actions/setup-python@v2
+      #   with:
+      #     python-version: '3.x'
+      - uses: iterative/setup-cml@v1
+      - name: Train model
+        run: |
+          # Your ML workflow goes here
+          pip install -r requirements.txt
+          python main.py \
+          --checkpoint_path "./reports/checkpoint" \
+          --data_path "hub://activeloop/spoken_mnist" \
+          --json_path "./reports/metrics/metrics.txt" \
+          --n_classes 10 \
+          --filters 16 32 64 \
+          --kernel_size "3,3" "3,3" "3,3" \
+          --batch_size 64 \
+          --epochs 4 
+      
