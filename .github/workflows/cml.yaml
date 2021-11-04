@@ -28,8 +28,4 @@ jobs:
           --kernel_size "3,3" "3,3" "3,3" \
           --batch_size 64 \
           --epochs 4 
-          
-          echo "## Some Results" > report.md
-          cat reports/metrics/metrics.txt >> report.md
-          
-          cml-send-comment report.md
+      
